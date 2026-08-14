@@ -139,6 +139,11 @@ console.log(num4) //Transform each elements from an Array
 
 let priceList = [100, 200, 300, 400, 500]
 
+const [n1, n2] = priceList
+
+console.log(n1) //100
+console.log(n2) //200
+
 let newPriceList = priceList.map(x=>x+50)
 
 console.log(newPriceList)
@@ -180,11 +185,52 @@ for(let l of listNumbers)
 
 let superHeros = ["Ironman", "Hulk", "Spiderman", "Batman", "Captain America"]
 
-console.log(superHeros)
+//Destruring means extracting values from an array and assiging them to variable
 
-let [s1, s2, s3] = superHeros
+//Before Destructing Concept
+// const s1 = superHeros[0]
+// const s2 = superHeros[1]
+// console.log(s1)
+// console.log(s2)
+
+const [s1, s2, s3, s4, s5] = superHeros
 
 console.log(s1)
+console.log(s5)
+
+//Spread Operator ...
+//It is used to expand / copy from an array 
+
+let array1 = [1, 2, 3]
+let array2 = [...array1, 4, 5, 6]
+
+let array3 = [...array2, 7, 8, 9]
+console.log(array2)
+console.log(array3)
+
+let array4 = [0, ...array1, ...array2, ...array3]
+console.log(array4)
+
+//Rest Operator
+
+let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+let [m1, m2, m3, ...m4] = myArray 
+
+console.log(m1)
+console.log(m2)
+console.log(m3)
+console.log(m4) 
+
+//It collects the remaining values and stored into a variable
+
+//Rest = Collect ...
+//Spred = Expand ...
+
+
+
+
+
 
 
 

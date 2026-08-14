@@ -19,6 +19,10 @@ let empName
 //Pascal Case
 //class EmployeeDetails (class. interface)
 
+//Data Type
+//primitive
+//non-primitive (object)
+
 
 //types of datatypes
 //string
