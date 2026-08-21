@@ -116,3 +116,71 @@ console.log(Object.values(car))
 
 console.log(Object.entries(car))
 
+let laptop ={
+    brand: "Dell",
+    RAM: "8 GB",
+    generation: "intel core 6"
+}
+
+//Object.freeze(laptop)
+
+// laptop.brand = "HP"
+// laptop.price = 45000
+// delete laptop.generation
+
+//Object.seal(laptop)
+
+laptop.brand = "HP"
+laptop.price = 45000
+delete laptop.generation
+
+console.log(laptop)
+
+const player = {
+    number: 10,
+    name: "Sachin",
+    age: 50
+}
+
+//Extracting the properties from an object and store them directly into variables
+
+// const {number, name, age} = player
+
+// console.log(number)
+// console.log(name)
+// console.log(age)
+
+const updatePlayer = {
+    ...player,
+    city: "Mumbai",
+    team: "MI"
+}
+
+console.log(updatePlayer)
+
+const {number, name, age, ...remaining} = updatePlayer
+
+console.log(number)
+console.log(name)
+console.log(age)
+console.log(remaining)
+
+let obj1 = {a:1}
+let obj2 = {b:2}
+
+let obj3 = Object.assign(obj1, obj2, {c:3})
+console.log(obj3)
+
+let ob1 = {
+    name: "Mani",
+    age: 23
+}
+
+let ob2 = ob1 //Shallow Copy
+
+ob1.name = "Ravi"
+ob1.id = "101"
+
+console.log(ob1)
+console.log(ob2)
+
