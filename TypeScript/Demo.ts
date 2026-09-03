@@ -121,21 +121,24 @@ class Student
         this.id = id
     }
     //methods
-    display()
+    display(): void
     {
         console.log(this.name)
         console.log(this.id)
     }
-    show()
+    showName(): string
     {
-        console.log(this.name)
-        console.log(this.id)
+        return this.name
+    }
+    showId(): number
+    {
+        return this.id
     }
 }
 
 let s = new Student("Bala", 100)
 s.display()
-s.show()
+//s.show()
 
 class Hotel
 {
@@ -148,12 +151,12 @@ class Hotel
         this.coffee = coffee
         this.menu = menu
     }
-    displayRate()
+    displayRate(): void
     {
         console.log(this.tea)
         console.log(this.coffee)
     }
-    showTodayMenu()
+    showTodayMenu(): void
     {
         console.log(`Today's Breakfast menu is: ${this.menu}`)
     }
@@ -170,13 +173,142 @@ h.showTodayMenu()
 //methods(diplayEmpDetails(ename, eid, eadd, departme))
 //(showEmployeeSalary eSalary)
 
+//Abstraction
+//Hiding internal implementation details and showing only the necessary features to the users
+
+//abstract
+//interface
+
+abstract class Animal
+{
+    abstract sound(): void //unimplemented method
+    abstract eat(): void
+
+    sleep()
+    {
+        console.log("Sleeping")
+    }
+}
+
+class Dog extends Animal
+{
+    sound(): void {
+        console.log("Barking")
+    }
+    eat(): void {
+        console.log("Eating Cookies")
+    }
+}
+
+class Cat extends Animal
+{
+    sound(): void {
+        console.log("Meow")
+    }
+    eat(): void {
+        console.log("Drinking Milk")
+    }
+}
+
+let a;
+
+a = new Dog()
+a.sound()
+a.eat()
+
+a = new Cat()
+a.sound()
+a.eat()
+
+interface Animals
+{
+   sound(): void //abstract method //unimplemented method
+   eat(): void
+}
+
+class Dogs implements Animals
+{
+    sound(): void {
+        console.log("Barking")
+    }
+    eat(): void {
+        
+    }
+}
+class Cats implements Animals
+{
+    sound(): void {
+        console.log("Meow")
+    }
+    eat(): void {
+        
+    }
+}
+
+//100% abstraction ==> Interface ==> normal method not allowed inside interface
+
+let b;
+
+b = new Dogs()
+b.sound()
+
+b = new Cats()
+b.sound()
 
 
+interface student
+{
+    name: string
+    id: number
+    age: number
+    city: string
+    state?: string    //? optinal property
 
+    display(): void
+    
+}
 
+let s1:student = {
+    name: "Praveen",
+    id: 101,
+    age: 22,
+    city: "Trichy",
+    state: "Tamilnadu",
 
+    display()
+    {
+        console.log(this.name)
+        console.log(this.id)
+        console.log(this.age)
+    }
+}
 
+let s2: student = {
+    name: "Mani",
+    id: 102,
+    age: 23,
+    city: "Madurai",
+    display(): void
+    {
+        console.log(this.name)
+        console.log(this.id)
+        console.log(this.age)
+    }
+}
 
+let s3: student = {
+    name: "Mani",
+    id: 102,
+    age: 23,
+    city: "Madurai",
+    display(): void
+    {
+        console.log(this.name)
+        console.log(this.id)
+        console.log(this.age)
+    }
+    
+}
 
 
 
