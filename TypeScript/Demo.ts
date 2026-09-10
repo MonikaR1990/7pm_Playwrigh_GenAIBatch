@@ -310,5 +310,142 @@ let s3: student = {
     
 }
 
+//Access Specifiers
+//public - Accessible Everywhere
+//private - Same Class only
+//protected - Same Class + Child Class
+
+// export class Employee
+// {
+//     public name: string = "Bala"  //public variable
+
+//     public displayName()          //Same class
+//     {
+//         console.log(this.name)
+//     }
+//     show()
+//     {
+//         this.displayName()
+//     }
+// }
+
+// class Manager extends Employee
+// {
+//     showName()
+//     {
+//         console.log(this.name)     //Child Class
+//         this.displayName()
+//     }
+// }
+
+
+// export class Employee
+// {
+//     protected name: string = "Bala"  //public variable
+
+//     protected displayName()          //Same class
+//     {
+//         console.log(this.name)
+//     }
+//     show()
+//     {
+//         this.displayName()
+//     }
+// }
+
+// class Manager extends Employee
+// {
+//     showName()
+//     {
+//         console.log(this.name)     //Child Class
+//         this.displayName()
+//     }
+// }
+
+
+export class Employee
+{
+    name: string = "Bala"  //public variable
+
+    displayName()          //Same class
+    {
+        console.log(this.name)
+    }
+    show()
+    {
+        this.displayName()
+    }
+}
+
+class Manager extends Employee
+{
+    showName()
+    {
+        console.log(this.name)     //Child Class
+        this.displayName()
+    }
+}
+
+/*
+variables & methods
+            same class            subclass           outside class
+private        yes                   no                   no
+protected      yes                   Yes                  no
+public         yes                   yes                  yes
+
+without keyword is treated as public member
+
+*/
+
+//Type in Typescript (used to create a custom type)
+
+type ID = string | number
+
+let employeeID: ID
+
+employeeID = 101
+employeeID = "EMP101"
+//employeeID = true
+
+type Name = string
+
+let employeeName: Name = "Bala"
+
+//Name -> Custom type
+//string -> actual type
+
+type Person = {
+    name: string
+    age: number
+    isActive: boolean
+}
+
+const p1: Person = {
+    name: "Mani",
+    age: 32,
+    isActive: true
+}
+
+//type vs interface
+
+//type can define objects, union, functions, literals
+//interface mainly used for objects and methods 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
