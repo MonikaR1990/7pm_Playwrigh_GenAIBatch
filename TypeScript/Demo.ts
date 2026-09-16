@@ -265,7 +265,7 @@ interface student
     state?: string    //? optinal property
 
     display(): void
-    
+
 }
 
 let s1:student = {
@@ -275,7 +275,7 @@ let s1:student = {
     city: "Trichy",
     state: "Tamilnadu",
 
-    display()
+    display()                 
     {
         console.log(this.name)
         console.log(this.id)

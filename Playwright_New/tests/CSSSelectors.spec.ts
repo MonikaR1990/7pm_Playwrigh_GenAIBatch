@@ -20,7 +20,7 @@ test('CSS Selector', async({page})=>{
     await page.locator('input').first().fill('Bala') //2
     await page.locator('input').last().fill('G')
     await page.locator('input').nth(1).fill('G')
-    await page.locator('input').nth(0).fill('V')
+    await page.locator('input').nth(0).fill('V') //index
     await page.locator('button').click()
 
     await page.locator('[id*="name"]').first().fill("Parveen")
@@ -28,7 +28,9 @@ test('CSS Selector', async({page})=>{
 
     await page.locator('input[placeholder^="Enter"]').fill('Bala')
 
-
+    //Visible Text
+    await page.locator('text=Data Entry Form').click()
+    await page.locator('a:has-text("Data Entry Form")').click()
 
 })
 
@@ -60,3 +62,5 @@ test('CSS Selector', async({page})=>{
 //     <p>Invalid</p>     h2 ~ p //Error and  Invalid
 //     <span>Help</span>  h2 ~ p
 // </div>
+
+//CSS is a locator technique used to identify the elements in a web page
