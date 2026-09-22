@@ -25,6 +25,19 @@ test('Xpath', async({page})=>{
 
     //Find child element using parent element
     await page.locator("//select[@name='url']/child::option").click()
+
+    //Find the Ancestor (Grand Parent) using Descendant (Garnd child)
+    await page.locator("//option[text()='Baby']/ancestor::form").click()
+
+    //Find the Descend  ant (Garnd Child) using Ancestor (Grand Parent)
+    await page.locator("//form[@id='nav-search-bar-form']/descendant::select").click()
+
+    //Find following elements (all elements after the main element)
+    //option[text()='All Categories']/following::option
+
+    //Find following elements (on its own family after the main element)
+    //option[text()='All Categories']/following-sibling::option
+     
     
 
 
