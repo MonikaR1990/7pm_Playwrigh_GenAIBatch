@@ -174,13 +174,65 @@ test('toBe', async({page})=>{
     expect(userProfile).toBe('sonya.a@gmail.com')
 })
 
+test('toContain', async({page})=>{
+    await page.goto("https://demowebshop.tricentis.com/login")
+    await page.locator('#Email').fill('sonya.a@gmail.com')
+    await page.locator('#Password').fill("sonya@123")
+    await page.locator('[value="Log in"]').click()
+
+    const userProfile =  await page.locator('.account').first().textContent()
+
+    expect(userProfile).toContain('sonya')
+})
+
+//array, object, type
+test('toEqual', async({page})=>{
+    const fruits = ["Apple", "Banana", "Mango"]
+
+    const expectedFruits = ["Apple", "Banana", "Mango"]
+
+    expect(fruits).toEqual(expectedFruits)
+
+})
+
+test('toMatch', async()=>{
+    const phone = 9600393318
+    expect(phone.toString).toMatch(/^\d{10}$/)
+})
+
+test('toBeTruthy', async({page})=>{
+    await page.goto("https://demowebshop.tricentis.com/login")
+    await page.locator('#Email').fill('sonya.a@gmail.com')
+    await page.locator('#Password').fill("sonya@123")
+    await page.locator('[value="Log in"]').click()
+
+    const userProfile =  await page.locator('.account').first().isVisible()
+    console.log(userProfile)
+    expect(userProfile).toBeTruthy()
+})
+
+test('toBeFalsy', async({page})=>{
+    await page.goto("https://demowebshop.tricentis.com/login")
+    await page.locator('#Email').fill('sonya.a@gmail.com')
+    await page.locator('#Password').fill("sonya@123")
+    await page.locator('[value="Log in"]').click()
+
+    const userProfile =  await page.locator('.account111').first().isVisible()
+    console.log(userProfile)
+    expect(userProfile).toBeFalsy()
+})
+
+
+
+
+
 
 //toHaveText ==> verify the exact visible text of an element
 //Hard Assertion ==> If the assertion passes --> execution continues
 //               ==> If the assertion fails --> execution stops immediately at the point
 //toBeEnabled ==> it is an assertion used to verify that an element is enabled and we can interacted with it
 //toBeDisabled ==> it is used to verify that an input, button, checkbox or other control is disabled
-
+//textContent() ==> get the element's visible text (it gives string data)
 
 
 //Name: 
