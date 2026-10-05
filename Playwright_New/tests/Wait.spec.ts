@@ -56,7 +56,7 @@
     //Three page load state (event)
     //1. domcontentloaded ==> wait unitil the HTML is parsed and DOM Created after that do next Step
     //2. load ==> wait until the page's load events occurs (all resources loaded)
-    //3. newtworkidle ==> 
+    //3. newtworkidle ==> wait untill the page has no active network connections for 500ms
 
     //domcontentloaded
     /*
@@ -194,4 +194,16 @@ test('waitForLoadSate_networkIdle', async({page})=>{
     await page.goto("https://www.amazon.in/") 
     await page.waitForLoadState('networkidle') //wait untill the page has no active network connections for 500ms
     await page.locator('input#twotabsearchtextbox').fill("Laptop")
+})
+
+test('waitForTimeOut()', async({page})=>{
+    await page.goto("https://www.saucedemo.com/")
+    await page.locator("#user-name").fill("standard_user")   
+    await page.locator("#password").fill("secret_sauce")
+    await page.locator("#login-button").click()
+
+    //await page.waitForTimeout(3000) 
+
+    const products = await page.locator('.inventory_item_name ').allInnerTexts()
+    console.log(products)
 })
