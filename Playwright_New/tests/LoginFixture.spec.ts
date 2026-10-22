@@ -5,32 +5,16 @@ type myFixture = {
     login: Page
 }
 
-
-const test = base.extend<myFixture>({
-    login: async({page}, use)=>{
-    
-    await page.goto("https://www.saucedemo.com/")
-    await page.locator("#user-name").fill("standard_user")
-    await page.locator("#password").fill("secret_sauce")
-    await page.locator('#login-button').click()
-
-    await use(page)
-
+export const test = base.extend<myFixture>({
+    login: async({page}, use) => {
+        
+await page.goto("https://www.saucedemo.com/")
+        await page.locator('#user-name').fill("standard_user")
+        await page.locator('#password').fill("password")
+        await page.locator('#login-button').click()
+        await use(page)  //"playwright make this page available to my test"
     }
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
