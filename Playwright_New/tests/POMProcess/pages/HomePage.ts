@@ -12,12 +12,12 @@ export class HomePage
     }
 
     //Methods (actions)
-    async gotoHomePage()
+    async gotoHomePage(): Promise<void>
     {
         await this.page.goto("https://automationexercise.com/")
     }
 
-    async clickSignupLoginBtn()
+    async clickSignupLoginBtn(): Promise<void>
     {
         await this.signupLoginBtn.click()
     }

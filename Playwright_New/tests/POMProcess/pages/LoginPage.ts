@@ -21,11 +21,12 @@ export class LoginPage
         this.errorMsg = page.getByText('incorrect')
     }
 
-    async loginAs(username: string, password: string)
+    async loginAs(username: string, password: string): Promise<void>
     {
         await this.emailAddress.fill(username)
         await this.password.fill(password)
         await this.loginBtn.click()
     }
+    
 }
 
