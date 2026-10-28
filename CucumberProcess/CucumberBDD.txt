@@ -1,0 +1,71 @@
+BDD - Software Devlopment Approch 
+
+Cucumber - It is a tool that supports BDD by allowing us to write test scenario in simple, readable language called GherKin
+
+//Installation Steps
+
+1. Folder Create
+
+2. Install Playwright - npm init playwright@latest 
+
+3. tsconfig.json(playwright error resolve(
+	{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "types": ["node", "@playwright/test"],
+    "strict": true,
+    "noEmit": true
+  }
+}
+
+4. Cucumber Install
+	npm install -D @cucumber/cucumber
+
+5. Install TypeScript
+	npm install -D typescript@~5.9.0
+
+6. Install ts-node (Cucumber needs a way to execute your typescript step-definition files)
+	npm install -D ts-node@10.9.2
+
+7. Install Node.js type definition
+	 npm install -D @types/node
+		"process" comes from node.js not playwright or cucumber
+
+8. Add one extenstion --> click Extentions --> Search --> Cucumber Type --> Cucumber for Visual Studio Install
+
+9. Delete Test Folder
+
+10. Five folders
+    features
+    hooks
+    pages
+    reports
+    steps
+
+11. create cucumber.js file and copy the below code
+
+    module.exports = {
+    default: {
+        requireModule: ['ts-node/register'],
+
+        require: [
+            'steps/**/*.ts',
+            'hooks/**/*.ts'
+        ],
+
+        paths: [
+            'features/**/*.feature'
+        ],
+
+        format: [
+            'progress',
+            'html:reports/cucumber-report.html', 
+        ],
+
+        formatOptions: {
+            snippetInterface: 'async-await'
+        }
+    }
+};
