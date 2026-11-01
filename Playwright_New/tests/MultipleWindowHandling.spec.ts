@@ -14,7 +14,7 @@ test('Multiple Windows Hablding', async({page, context})=>{
 
     for(let p of context.pages())
     {
-        await page.waitForLoadState('load') 
+        await p.waitForLoadState('load') 
         if(p.url().includes('/alert'))
         {
             alertPage = p

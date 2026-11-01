@@ -1,6 +1,6 @@
 import { Page, Locator } from '@playwright/test'
 
-class ProductPage
+export class ProductPage
 {
     //Properties
     page: Page                //Instance Variable  //Declaration only happen must need initialization 
@@ -19,6 +19,7 @@ class ProductPage
         this.continueShopping = page.getByText("Continue Shopping")
         this.viewCartLink = page.locator('[href="/view_cart"]').last()
         //this.viewCartLink = page.locator('//u/parent::a[@href="/view_cart"]')
+        
     }
 
     //Methods
@@ -41,6 +42,8 @@ class ProductPage
     {
         await this.viewCartLink.click()
     }
+    
+    
 }
 
 // let product = new ProductPage(page)

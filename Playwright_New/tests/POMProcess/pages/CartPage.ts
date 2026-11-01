@@ -1,6 +1,6 @@
 import { Page, Locator } from '@playwright/test'
 
-class CartPage
+export class CartPage
 {
     //Propertise
     page: Page                  //Instance Variable    //Here only declaration
@@ -19,7 +19,7 @@ class CartPage
         this.productPrice = page.locator('.cart_price p')
         this.productQuantity = page.locator('.cart_quantity button')
         this.productTotalPrice = page.locator('.cart_total_price')
-        this.shoppingCart = page.getByText('shoppingCart')
+        this.shoppingCart = page.getByText('Shopping Cart')
     }
 
     //Methods

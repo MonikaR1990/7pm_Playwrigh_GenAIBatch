@@ -9,6 +9,7 @@ export class LoginPage
     loginBtn: Locator
     loggedUser: Locator
     errorMsg: Locator
+    productPageLink: Locator
     constructor(page: Page)
     {
         this.page = page
@@ -19,6 +20,8 @@ export class LoginPage
         //this.loggedUser = page.locator('//a[contains(text(),"Logged")]')
         this.loggedUser = page.getByText('logged')
         this.errorMsg = page.getByText('incorrect')
+
+        this.productPageLink = page.locator('[href="/products"]')
     }
 
     async loginAs(username: string, password: string): Promise<void>
@@ -26,6 +29,10 @@ export class LoginPage
         await this.emailAddress.fill(username)
         await this.password.fill(password)
         await this.loginBtn.click()
+    }
+    async clickProductPage(): Promise<void>
+    {
+        await this.productPageLink.click()
     }
     
 }
