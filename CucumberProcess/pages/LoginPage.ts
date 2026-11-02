@@ -1,6 +1,6 @@
 import { Page, Locator } from '@playwright/test'
 
-class LoginPage
+export class LoginPage
 {
     page: Page
     email: Locator
@@ -20,7 +20,7 @@ class LoginPage
 
     async gotoHomPage(): Promise<void>
     {
-        await this.page.goto("https://demowebshop.tricentis.com/")
+        await this.page.goto("https://demowebshop.tricentis.com/login")
     }
     async enterLoginDetails(username: string, password: string): Promise<void>
     {

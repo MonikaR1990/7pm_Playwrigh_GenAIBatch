@@ -12,6 +12,7 @@ export class RegisterPage
     confirmPassword: Locator
     registerBtn: Locator
     successMsg: Locator
+    errorMsg: Locator
     constructor(page: Page)
     {
         this.page = page
@@ -26,6 +27,7 @@ export class RegisterPage
         this.registerBtn = page.locator('#register-button')
 
         this.successMsg = page.locator('.result')
+        this.errorMsg = page.locator('.message-error')
         
     } 
     async navigateRegisterPage(): Promise<void>
@@ -45,11 +47,11 @@ export class RegisterPage
     }
     async userEnterDetails(): Promise<void>
     {
-        await this.fname.fill('swetha')
-        await this.lname.fill('mm')
-        await this.email.fill("swetha.mm@gmail.com")
-        await this.password.fill("swetha.mm.123")
-        await this.confirmPassword.fill("swetha.mm.123")
+        await this.fname.fill('rama')
+        await this.lname.fill('aa')
+        await this.email.fill("rama.aa@gmail.com")
+        await this.password.fill("rama.aa.123")
+        await this.confirmPassword.fill("rama.aa.123")
     }
     async clickReisterBtn(): Promise<void>
     {
@@ -58,5 +60,9 @@ export class RegisterPage
     async getSuccessMsg(): Promise<string | null>
     {
         return await this.successMsg.textContent()
+    }
+    async getErrorMsg(): Promise<boolean>
+    {
+        return await this.errorMsg.isVisible()
     }
 }

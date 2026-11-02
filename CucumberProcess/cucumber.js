@@ -4,11 +4,14 @@ module.exports = {
 
         require: [
             'steps/**/*.ts',
+            // 'steps/loginPage.spec.ts',
             'hooks/**/*.ts'
         ],
 
         paths: [
             'features/**/*.feature'
+            // 'features/login.feature'
+            // 'features/register.feature'
         ],
 
         format: [
