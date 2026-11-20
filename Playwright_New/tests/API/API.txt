@@ -1,0 +1,133 @@
+API = Application Programming Interface
+
+API is a way for two software application to communicate each other
+
+client side ==> it runs on the user's device (chrome, edge, firefox, mobile application, windows application)
+server side ==> that runs on the server and handle the business logic (java/spring boot, node.js, python, .net)
+Database ==> stores the data
+
+browser --> API (login request) --> server side --> "let me check this user" --> user found --> server side --> API response -->  browser 
+
+//API Testing
+
+accept the correct request
+returns the correct correct response
+returns the correct status code
+validate incorrect input
+handles error
+
+//Types of API
+
+REST API ==> Representational State Transfer API (mose used) ==> HTTP Method ==> JSON Format
+SOAP API ==> Simple Object Access Protocol ==> XML  
+GraphQL API ==> Specific needs of DAta ==> JSON
+Websocket API ==> chat application, live dashboard, online gaming (live)
+
+HTTP Methods:
+
+GET ==> Read the data ==> Get the Projects, Login
+POST ==> Create Data ==> Create User, Instagram Post
+PUT ==> Update Data ==> update customer data, user details modify
+DELETE ==> Delete Data ==> delete products / remove employee
+PATCH ==> partial update 
+
+//API Request
+Request URL / End point
+Headers
+parameters
+Request Body (client send data, input)
+
+request body
+{
+    "username": "monika"
+    "password": "monika@123"
+}
+
+//API Response
+
+Status Code
+headers
+response time
+response body(server send data, output)
+
+
+{
+    "userId": 101
+    "email" : "monika@gmail.com"
+    "status": "SUCCESS"
+    "message": "Success Message Displayed"
+}
+
+
+//status code
+for your request server send response
+
+//1XX --> Infotmation (not in testing) (100-199)
+//2XX --> Success (200-299)
+//3XX --> Redirect (300-399)
+//4XX --> Client Error (400-499)
+//5XX --> Server Error (500-599)
+
+//2XX - Success
+
+200 - OK
+201 - Created (new resources/data are successfully created)
+202 - Accepted server accept your request but response may take time 
+204 - No Content (the request was successful, but there no response)
+
+//3XX - Re-diretion
+
+301 - moved resource (the resource permently moved to another URL)
+302 - temporary redirect
+
+//4XX
+400 - Bad Request
+401 - Unauthorized Problem (Invalid Credentials and tokens)
+402 - Payment Required
+403 - Forbidden (Permission) Bearer token
+404 - Not Found
+405 - Method not allowed 
+408 - Request Timeout
+409 - Conflict (Duplicate)
+
+5XX
+
+500 - Internal server error (application bug, unhandled exception, cofiguration)
+501 - Not Implemented
+502 - Bad Gateway
+503 - Server unavailable (maintanace, overloaded maintanace)
+
+
+user --> api gateway --> backend server --> Invalid response --> 502 (bad gateway)
+
+
+
+
+
+301
+
+http://example.com
+
+https://example.com
+
+https://shop.com/mobile
+
+https://shop.com/smartphones
+
+request
+{
+    "name": "Arun"
+    "email: "arun@@gmail.com"
+    "age": "ABC"
+}
+
+response
+
+{
+    "error": "Bad Request",
+    "message": "Invalid email address and age"
+    "statuscode": 400
+}
+
+
+
