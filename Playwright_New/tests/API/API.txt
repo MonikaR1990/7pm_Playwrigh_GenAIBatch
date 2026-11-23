@@ -114,14 +114,14 @@ https://shop.com/mobile
 
 https://shop.com/smartphones
 
-request
+request body
 {
     "name": "Arun"
     "email: "arun@@gmail.com"
     "age": "ABC"
 }
 
-response
+response body
 
 {
     "error": "Bad Request",
@@ -129,5 +129,48 @@ response
     "statuscode": 400
 }
 
+Topic	               What to teach
+===============================================================
+API	What is an API?    Why do applications need APIs?
+Client and Server	   How frontend communicates with backend
+API Testing	           What do we validate in API testing?
+REST API	           What is REST? What is a RESTful API?
+HTTP	               How HTTP request and response work
+URL	Base               URL, endpoint and resource
+HTTP Methods	       GET, POST, PUT, PATCH, DELETE
+Status Codes	       200, 201, 204, 400, 401, 403, 404, 500
+Request Components	   Headers, query parameters, path parameters, request body
+Response Components	   Status code, response headers, response body
+JSON	               JSON objects, arrays, key-value pairs and nested JSON
+Authentication	       API Key, Basic Auth, Bearer Token
+CRUD	               Create, Read, Update and Delete
 
+
+//headers ==> Headers provide additional information about the request sent to the server.
+
+https://reqres.in/api/login
+
+Content-Type: application/json
+Accept: application/json
+
+Header	        Purpose
+========================================================
+Content-Type	Tells the server what format we are sending
+Accept	        Tells the server what response format we expect
+Authorization	Sends authentication credentials or token
+
+query parameters (Query parameters are used to pass additional information to the API, usually to filter, search, or sort data.)
+=================
+https://company.com/api/employees?department=IT&staus=active
+
+https://company.com/api/ ==> URL
+employees ==> endpoint
+
+?department=IT&staus=active
+
+
+path parameters (Path parameters are used to identify a specific resource or record.)
+================
+https://company.com/api/employees/101
+    URL+endpoint
 
