@@ -1,0 +1,42 @@
+//Browser send the request to server through API
+//Server Process the request
+//Server send a response through API
+//Browser displays the response
+
+//Why we need network interrception?
+
+1. Modify API request data
+2. Modify API response data
+3. Mock API database
+4. Block unnecessary network requests
+5. Test error scenarios
+6. Testing the application behavior without depending on the actual backend
+
+
+Network Interception - Mocking
+
+It is used when we want to control, modify, block, fake the network request and response between browser and server
+
+Browser --> Request ---> Server (Give me the Product details)
+
+Server ---> Response ---> Browser (Here the Product details)
+
+Browser ---> Request ---> Interceptor ---> Server
+
+To Block Unncessary Resources for Improve Test Speed
+
+
+Browser
+|
+(Request Images) 
+|
+Playwright Interceptor
+| 
+(Stop Request)
+|
+Server 
+
+page.route()   --> Intercept network request
+route.fulfill() --> It provides custom response
+route.continue() --> Send the request to the actual server
+route.abort() --> Block the request

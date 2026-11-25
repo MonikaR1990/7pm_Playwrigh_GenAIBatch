@@ -1,4 +1,5 @@
 import {test, expect} from '@playwright/test'
+import { request } from 'node:http'
 
 //CRUD ==> Read (GET)
 test('Get All', async({request})=>{
@@ -32,3 +33,86 @@ test('Get All', async({request})=>{
 // toContainText ==> element visible text
 
 // <p>Helllo</p>
+test('Get Single Product', async({request})=>{
+    const response = await request.get('https://fakestoreapi.com/products/5')
+
+    console.log(response.status()) //200
+
+    expect(response.status()).toBe(200)
+    expect(response.ok()).toBeTruthy()
+
+    const body = await response.json()
+    console.log(body)
+
+    //expect(body.length).toBe(1)
+    expect(body.id).toBe(5)
+    expect(body.title).toContain('John Hardy')
+})
+test('Get Limited Product', async({request})=>{
+    const response = await request.get('https://fakestoreapi.com/products?limit=5')
+
+    console.log(response.status()) //200
+
+    expect(response.status()).toBe(200)
+    expect(response.ok()).toBeTruthy()
+
+    const body = await response.json()
+    console.log(body)
+
+    expect(body.length).toBe(5)
+    expect(body[4].id).toBe(5)
+    expect(body[4].title).toContain('John Hardy')
+})
+
+test('Create Product - Post', async({request})=>{
+    const response = await request.post('https://fakestoreapi.com/products', {
+        data: {
+            "title": "ABC Jewelery",
+            "price": 700,
+            "description": "ABC A+ Quality Jewels",
+            "category": "Jewels",
+            "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_t.png",
+            "rating": {
+                "rate": 3.6,
+                "count": 145
+            }
+        }
+    })
+
+    console.log(response.status()) //201
+
+    const body = await response.json()
+    console.log(body)
+    
+    expect(response.status()).toBe(201)
+    expect(body.id).toBe(21)
+})
+
+test('Update Product', async({request})=>{
+    const response = await request.put('https://fakestoreapi.com/products/9', {
+        data: {
+            "price": 74  
+        }
+    })
+
+    const body = await response.json()
+    console.log(body)
+
+    expect(response.status()).toBe(200)
+    expect(response.ok()).toBeTruthy()
+
+    expect(body.price).toBe(74);
+
+})
+
+test('Delete Product', async({request})=>{
+    const response = await request.delete('https://fakestoreapi.com/products/16')
+
+    const body = await response.json()
+    console.log(body)
+
+    expect(response.status()).toBe(200)
+    expect(response.ok()).toBeTruthy()
+    
+    expect(body.length).toBeEmpty()
+})
